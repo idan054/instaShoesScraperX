@@ -1,21 +1,21 @@
 from color_printer import printGreen
 
 from Examples.Gsheet import update_nxt_row
-from Examples.instaData import get_insta_data
+from Examples.instaFilter import insta_filter
 
 if __name__ == '__main__':
     # for post in instaloader.Hashtag.from_name(L.context, 'cat').get_posts():
-    users_min_followers = input("Insert the minimum followers size") or 2.5*1000
-    users_max_followers = input("Insert the maximum followers size") or 100*1000
-    limit_per_session = input("limit per session?") or 99
+    users_min_followers = input("Insert the minimum followers size") or 2.5*1000  # K
+    users_max_followers = input("Insert the maximum followers size") or 1000*1000  # K
+    limit_per_session = input("limit per session?") or 3
     selected_user = input("""
 Make sure you can get_similar_accounts from
-Please select user with ABOVE followers then minimum""")
+Please select user with ABOVE followers then minimum""") or "stabilo"
 
-    # matched_users_dict = get_insta_data(users_min_followers, users_max_followers,
-    #                                     limit_per_session, selected_user)
+    matched_users_dict = insta_filter(users_min_followers, users_max_followers,
+                                      limit_per_session, selected_user)
 
-    matched_users_dict = {'topspeed.alain': {'followers': 2828, 'external_link': 'https://maps.app.goo.gl/jwDgwadqw5vp7kvj6', 'insta_link': 'https://instagram.com/topspeed.alain'}, 'brand_shoes_express': {'followers': 6135, 'external_link': 'http://www.patrickschoice.com/', 'insta_link': 'https://instagram.com/brand_shoes_express'}, 'top_shoes.il': {'followers': 10918, 'external_link': 'https://www.topshoesil.co.il/', 'insta_link': 'https://instagram.com/top_shoes.il'}, 'calebjonnson': {'followers': 6401, 'external_link': 'http://calebjohnsonphotography.com/', 'insta_link': 'https://instagram.com/calebjonnson'}, 'blauwblokkers.nl': {'followers': 4851, 'external_link': 'http://www.blauwblokkers.nl/', 'insta_link': 'https://instagram.com/blauwblokkers.nl'}, 'brity.nl': {'followers': 3231, 'external_link': 'https://brity.nl/', 'insta_link': 'https://instagram.com/brity.nl'}, 'buketparis': {'followers': 3625, 'external_link': 'https://buketparis.ru/', 'insta_link': 'https://instagram.com/buketparis'}}
+    # matched_users_dict = {'topspeed.alain': {'followers': 2828, 'external_link': 'https://maps.app.goo.gl/jwDgwadqw5vp7kvj6', 'insta_link': 'https://instagram.com/topspeed.alain'}, 'brand_shoes_express': {'followers': 6135, 'external_link': 'http://www.patrickschoice.com/', 'insta_link': 'https://instagram.com/brand_shoes_express'}, 'top_shoes.il': {'followers': 10918, 'external_link': 'https://www.topshoesil.co.il/', 'insta_link': 'https://instagram.com/top_shoes.il'}, 'calebjonnson': {'followers': 6401, 'external_link': 'http://calebjohnsonphotography.com/', 'insta_link': 'https://instagram.com/calebjonnson'}, 'blauwblokkers.nl': {'followers': 4851, 'external_link': 'http://www.blauwblokkers.nl/', 'insta_link': 'https://instagram.com/blauwblokkers.nl'}, 'brity.nl': {'followers': 3231, 'external_link': 'https://brity.nl/', 'insta_link': 'https://instagram.com/brity.nl'}, 'buketparis': {'followers': 3625, 'external_link': 'https://buketparis.ru/', 'insta_link': 'https://instagram.com/buketparis'}}
 
     #     matched_users_dict \
     #         = {

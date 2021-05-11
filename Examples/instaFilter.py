@@ -7,13 +7,14 @@ import instaloader
 from color_printer import printGreen, printYellow
 
 
-def get_insta_data(users_min_followers, users_max_followers,
-                   limit_per_session, selected_user):
+def insta_filter(users_min_followers, users_max_followers,
+                 limit_per_session, selected_user):
     print("Start")
     L = instaloader.Instaloader()
 
     try:
-        L.load_session_from_file("3deal.com_")
+        # Saved session to /Users/biton/.config/instaloader/session-sycho_shoes.il.
+        L.load_session_from_file("sycho_shoes.il")
         print("Session Succeed")
     except:
         # L.login(user="3deal.com_", passwd="3deal3252")
